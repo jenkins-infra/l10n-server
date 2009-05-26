@@ -1,0 +1,22 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+  <listener>
+    <listener-class>org.jvnet.hudson.l10n.WebAppMain</listener-class>
+  </listener>
+  
+  <servlet>
+    <servlet-name>Stapler</servlet-name>
+    <servlet-class>org.kohsuke.stapler.Stapler</servlet-class>
+    <init-param>
+      <param-name>default-encodings</param-name>
+      <param-value>text/html=UTF-8</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Stapler</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
