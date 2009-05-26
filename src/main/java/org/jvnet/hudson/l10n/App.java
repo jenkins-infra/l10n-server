@@ -14,6 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
@@ -84,9 +85,12 @@ public class App {
             os.close();
         }
 
+        // send back the response
         rsp.setStatus(200);
         rsp.setContentType("text/javascript");
-        rsp.getWriter().close();
+        PrintWriter out = rsp.getWriter();
+        out.println("");
+        out.close();
     }
 
     /**
@@ -111,7 +115,10 @@ public class App {
     }
 
     private Cookie findIDCookie(StaplerRequest req) {
-        for (Cookie c : req.getCookies()) {
+        Cookie[] cookies = req.getCookies();
+        if(cookies==null)   return null;
+        
+        for (Cookie c : cookies) {
             if(c.getName().equals("ID"))
                 return c;
         }
