@@ -17,9 +17,17 @@
       <plugin>
         <groupId>org.kohsuke.stapler</groupId>
         <artifactId>maven-stapler-plugin</artifactId>
+        <version>1.12</version>
+        <extensions>true</extensions>
+        <dependencies>
+          <dependency>
+            <groupId>org.jvnet.maven-jellydoc-plugin</groupId>
+            <artifactId>maven-jellydoc-plugin</artifactId>
+            <version>1.4</version>
+          </dependency>
+        </dependencies>
       </plugin>
       <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <source>1.5</source>
