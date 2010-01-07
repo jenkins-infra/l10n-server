@@ -58,7 +58,7 @@ public class App {
         f = new File(f,json.getString("locale"));
         f.mkdirs();
 
-        FileUtils.writeStringToFile(new File(f,id+".json"),json.toString(2));
+        FileUtils.writeStringToFile(new File(f,id+".json"),json.toString(2),"UTF-8");
 
         Cookie c = findIDCookie(req);
         if (c==null) {
