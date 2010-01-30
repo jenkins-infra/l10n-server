@@ -49,7 +49,7 @@ public class App {
         if(dir==null)   dir=".";
         File f = new File(dir);
 
-        String js = IOUtils.toString(new GZIPInputStream(new BASE64DecoderStream(new ByteArrayInputStream(req.getQueryString().getBytes()))));
+        String js = IOUtils.toString(new GZIPInputStream(new BASE64DecoderStream(new ByteArrayInputStream(req.getQueryString().getBytes()))),"UTF-8");
         JSONObject json = JSONObject.fromObject(js);
 
         filter(json);
