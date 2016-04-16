@@ -1,7 +1,4 @@
 # Server side for translation plugin
 This webapp receives submissions from translation plugin and stores them as JSON files locally.
 
-## Building
-
-    mvn install
-    docker build -t jenkinsci/l10n-server .
+Build this with `make`. To specify the docker tag explicitly from outside, `make TAG=build32`
