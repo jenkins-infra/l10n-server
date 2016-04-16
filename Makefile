@@ -1,6 +1,6 @@
 ALL:    docker
 
-IMAGE = jenkinsci/l10n-server
+IMAGE = jenkinsciinfra/l10n-server
 TAG = $(shell git rev-parse HEAD | cut -b 1-7)
 
 target/l10n.war:
