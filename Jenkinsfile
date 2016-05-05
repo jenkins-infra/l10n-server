@@ -17,8 +17,15 @@ node('docker') {
     shortCommit = readFile('GIT_COMMIT').take(6)
     def imageTag = "build${shortCommit}"
 
+    stage 'Build Java code'
+    withEnv(["PATH+MVN=${tool 'mvn'}/bin"]) {
+        sh 'make target/l10n.war'
+        step([$class: 'ArtifactArchiver',
+                artifacts: 'target/*.war',
+                fingerprint: true])
+    }
 
-    stage 'Build'
+    stage 'Build Container'
     def whale = docker.build("${imageName}:${imageTag}")
 
     stage 'Deploy'
