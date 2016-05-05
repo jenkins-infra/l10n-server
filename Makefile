@@ -12,9 +12,6 @@ data:
 docker: target/l10n.war
 	docker build -t $(IMAGE):$(TAG) .
 
-push: docker
-	docker push $(IMAGE):$(TAG)
-
 run: docker data
 	docker run -ti --rm -p 8085:8080 -u `id -u` -v `pwd`/data:/var/l10n $(IMAGE):$(TAG)
 
