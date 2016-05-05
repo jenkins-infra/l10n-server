@@ -18,7 +18,7 @@ node('docker') {
     def imageTag = "build${shortCommit}"
 
     stage 'Build Java code'
-    withEnv(["PATH+MVN=${tool 'mvn'}/bin"]) {
+    withEnv(["PATH+MVN=${tool 'mvn'}/bin", "JAVA_HOME=${tool 'jdk8'}"]) {
         sh 'make target/l10n.war'
         step([$class: 'ArtifactArchiver',
                 artifacts: 'target/*.war',
